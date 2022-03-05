@@ -404,26 +404,30 @@ just in case we want an interactive map.
 
 ``` r
 joined_income_and_race_data <- st_transform(joined_income_and_race_data, 4326)
-st_crs(ga_census_tracts)
+st_crs(joined_income_and_race_data)
 ```
 
     ## Coordinate Reference System:
-    ##   User input: NAD83 
+    ##   User input: EPSG:4326 
     ##   wkt:
-    ## GEOGCRS["NAD83",
-    ##     DATUM["North American Datum 1983",
-    ##         ELLIPSOID["GRS 1980",6378137,298.257222101,
+    ## GEOGCRS["WGS 84",
+    ##     DATUM["World Geodetic System 1984",
+    ##         ELLIPSOID["WGS 84",6378137,298.257223563,
     ##             LENGTHUNIT["metre",1]]],
     ##     PRIMEM["Greenwich",0,
     ##         ANGLEUNIT["degree",0.0174532925199433]],
     ##     CS[ellipsoidal,2],
-    ##         AXIS["latitude",north,
+    ##         AXIS["geodetic latitude (Lat)",north,
     ##             ORDER[1],
     ##             ANGLEUNIT["degree",0.0174532925199433]],
-    ##         AXIS["longitude",east,
+    ##         AXIS["geodetic longitude (Lon)",east,
     ##             ORDER[2],
     ##             ANGLEUNIT["degree",0.0174532925199433]],
-    ##     ID["EPSG",4269]]
+    ##     USAGE[
+    ##         SCOPE["Horizontal component of 3D system."],
+    ##         AREA["World."],
+    ##         BBOX[-90,-180,90,180]],
+    ##     ID["EPSG",4326]]
 
 Now we can do intersection calculations. st_intersects() does the
 geographic work to find which point intersects which polygon, but the

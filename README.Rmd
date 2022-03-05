@@ -241,7 +241,7 @@ _They don't._ I'm going to change the joined data object to 4326 since that's wh
 
 ```{r}
 joined_income_and_race_data <- st_transform(joined_income_and_race_data, 4326)
-st_crs(ga_census_tracts)
+st_crs(joined_income_and_race_data)
 ```
 
 Now we can do intersection calculations. st_intersects() does the geographic work to find which point intersects which polygon, but the output isn't really human readable. Using the lengths() function with that turns it into something that's not only easy to read, but is in a format that we can add to our data set:
